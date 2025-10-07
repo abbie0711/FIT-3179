@@ -1,0 +1,110 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Number of Hawker Stalls by State in Malaysia",
+  "width": 460,
+  "height": 380,
+
+  "data": {
+    "url": "No_of_stalls.csv"
+  },
+
+  "params": [
+    {
+      "name": "regionFilter",
+      "value": "All",
+      "bind": {
+        "input": "select",
+        "options": ["All", "Peninsular", "East"],
+        "labels": ["All Regions", "Peninsular Malaysia", "East Malaysia"],
+        "name": "Region: "
+      }
+    },
+    {
+      "name": "stallThreshold",
+      "value": 0,
+      "bind": {
+        "input": "range",
+        "min": 0,
+        "max": 5000,
+        "step": 100,
+        "name": "Number of Hawker Stalls: "
+      }
+    }
+  ],
+
+  "transform": [
+    {
+      "filter": "regionFilter == 'All' || datum.Region == regionFilter"
+    },
+    {
+      "filter": "datum['Number of hawker stalls by state'] >= stallThreshold"
+    }
+  ],
+
+  "layer": [
+    {
+      "mark": "bar",
+      "encoding": {
+        "y": {
+          "field": "State",
+          "type": "ordinal",
+          "title": "State",
+          "sort": {
+            "field": "Number of hawker stalls by state",
+            "op": "sum",
+            "order": "descending"
+          }
+        },
+        "x": {
+          "field": "Number of hawker stalls by state",
+          "type": "quantitative",
+          "title": "Number of Hawker Stalls",
+          "axis": { "grid": false },
+          "scale": { "domain": [0, 5500] }
+        },
+        "color": {
+          "field": "Region",
+          "type": "nominal",
+          "title": "Region",
+          "scale": {
+            "domain": ["Peninsular", "East"],
+            "range": ["#1f77b4", "#ff7f0e"]
+          }
+        },
+        "tooltip": [
+          { "field": "State", "type": "ordinal" },
+          { "field": "Number of hawker stalls by state", "type": "quantitative" },
+          { "field": "Region", "type": "nominal" }
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "dx": 5,
+        "color": "black",
+        "fontSize": 10
+      },
+      "encoding": {
+        "y": {
+          "field": "State",
+          "type": "ordinal",
+          "sort": {
+            "field": "Number of hawker stalls by state",
+            "op": "sum",
+            "order": "descending"
+          }
+        },
+        "x": { "field": "Number of hawker stalls by state", "type": "quantitative" },
+        "text": { "field": "Number of hawker stalls by state", "type": "quantitative" }
+      }
+    }
+  ],
+
+  "config": {
+    "view": { "stroke": "transparent" },
+    "axis": { "grid": false }
+  }
+}

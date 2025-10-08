@@ -1,9 +1,13 @@
 {
   "$schema": "https://vega.github.io/schema/vega/v5.json",
-  "width": 600,
+  "title": {
+    "text": "Popular Foods in Malaysian States",
+    "anchor": "middle",
+    "dy": -5
+  },
+  "width": 400,
   "height": 420,
   "padding": 0,
-  "title": "Popular Foods in Malaysian States (Word Cloud)",
   "signals": [
     {
       "name": "selectedState",
@@ -68,7 +72,7 @@
       "transform": [
         {
           "type": "wordcloud",
-          "size": [600, 420],
+          "size": [400, 420],
           "text": {"field": "food"},
           "font": "sans-serif",
           "fontSize": {"field": "popularity"},

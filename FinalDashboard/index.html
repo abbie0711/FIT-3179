@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+  <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
+
+  <!-- Import pure.css -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css" 
+  integrity="sha384-X38yfunGUhNzHpBaEBsWLO+A0HDYOQi8ufWDkZ0k9e0eXz/tH3II7uKZ9msv++Ls" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/grids-responsive-min.css" />
+
+  <!-- CSS file -->
+  <link rel="stylesheet" type="text/css" href="css/style.css" media="all">
+
+  <title>Street Food and Hawker Culture in Malaysia</title>
+</head>
+
+<body>
+  <div class="newspaper-container">
+    <!-- Header Section -->
+    <header class="newspaper-header">
+      <h1 class="main-title">Street Food and Hawker Culture in Malaysia</h1>
+      <p class="subtitle">A Visual Exploration of Malaysia's Vibrant Food Scene</p>
+    </header>
+
+    <!-- Introduction Section -->
+    <section class="pure-g">
+      <div class="pure-u-1">
+        <div class="chart-container">
+          <p>Malaysia's street food culture is a vibrant tapestry of flavors, reflecting the nation's diverse ethnic heritage. This dashboard explores various aspects of hawker culture across different states and communities, starting with expenditure patterns and moving through geographic distribution to cultural diversity.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 1: Slope Chart with Text Beside -->
+    <section class="pure-g">
+      <div class="pure-u-1">
+        <h2 class="section-header">Household Expenditure Patterns</h2>
+      </div>
+      
+      <!-- Chart on the right, text on the left -->
+      <div class="pure-u-1 pure-u-lg-2-5">
+        <div class="chart-container">
+          <h3 class="chart-title">Understanding Expenditure Trends</h3>
+          <p class="chart-description">The slope chart reveals significant shifts in Malaysian household spending between 2019 and 2022. Most notably, <strong>food and beverage consumption increased from 16.3% to 17.3%</strong> of total expenditure, highlighting the growing importance of food in household budgets.</p>
+          <p class="chart-description">This trend coincides with changes in other categories: accommodation services saw substantial growth while transport expenses decreased, possibly reflecting post-pandemic lifestyle changes and increased focus on local food experiences.</p>
+          <p class="chart-description">The rising expenditure on food and beverages underscores the economic significance of Malaysia's hawker culture and street food scene.</p>
+        </div>
+      </div>
+
+      <!-- Chart on the right with margin -->
+      <div class="pure-u-1 pure-u-lg-3-5">
+        <div class="chart-container" style="margin-left: 40px;">
+          <div id="slopechart"></div>
+        </div>
+      </div>
+    </section>      
+   
+
+    <!-- Section 2: Choropleth Map (Full Width) -->
+    <section class="pure-g">
+      <div class="pure-u-1">
+        <h2 class="section-header">Geographic Distribution</h2>
+      </div>
+      
+      <div class="pure-u-1">
+        <div class="chart-container">
+          <h3 class="chart-title">Food Spending by State</h3>
+          <p class="chart-description">Building on the expenditure trends, this map shows how food spending patterns vary geographically across Malaysian states.</p>
+          <div id="choroplethmap"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: Dot Matrix and Word Cloud (Side by Side) -->
+    <section class="pure-g">
+      <div class="pure-u-1">
+        <h2 class="section-header">Food Diversity & Preferences</h2>
+      </div>
+      
+      <div class="pure-u-1 pure-u-lg-1-2">
+        <div class="chart-container">
+          <h3 class="chart-title">Food & Beverage Spending by Ethnic Group</h3>
+          <p class="chart-description">Dot matrix showing how different ethnic communities allocate their food expenditure, complementing the overall expenditure trends.</p>
+          <div id="dotmatrix"></div>
+        </div>
+      </div>
+      
+      <div class="pure-u-1 pure-u-lg-1-2">
+        <div class="chart-container">
+          <h3 class="chart-title">Popular Foods by State</h3>
+          <p class="chart-description">Word cloud showing the most popular foods across different Malaysian states, reflecting regional preferences and specialties.</p>
+          <div id="wordcloud"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: Lollipop Chart (Full Width) -->
+    <section class="pure-g">
+      <div class="pure-u-1">
+        <h2 class="section-header">Hawker Infrastructure Distribution</h2>
+      </div>
+      
+      <div class="pure-u-1">
+        <div class="chart-container">
+          <h3 class="chart-title">Hawker Stall Distribution by State</h3>
+          <p class="chart-description">Detailed breakdown of hawker stall numbers in each state, showing the infrastructure that supports Malaysia's vibrant food culture.</p>
+          <div id="lollipopchart"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 5: Bubble Chart and Radar Chart (Side by Side) -->
+    <section class="pure-g">
+      <div class="pure-u-1">
+        <h2 class="section-header">Hawker Business Analysis</h2>
+      </div>
+      
+      <div class="pure-u-1 pure-u-lg-1-2">
+        <div class="chart-container">
+          <h3 class="chart-title">Stall Categories Distribution</h3>
+          <p class="chart-description">Bubble chart showing the prevalence of different hawker stall types, from traditional setups to modern food trucks.</p>
+          <div id="bubblechart"></div>
+        </div>
+      </div>
+      
+      <div class="pure-u-1 pure-u-lg-1-2">
+        <div class="chart-container">
+          <h3 class="chart-title">Stall Categories by State</h3>
+          <p class="chart-description">Radar chart showing how different states vary in their mix of hawker stall infrastructure and facilities.</p>
+          <div id="radarchart"></div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <script type="text/javascript">
+    // Function to embed Vega visualizations
+    function embedVisualization(divId, specUrl) {
+      vegaEmbed(divId, specUrl)
+        .then(result => console.log(`Visualization ${divId} loaded successfully`))
+        .catch(error => console.error(`Error loading ${divId}:`, error));
+    }
+
+    // Embed all visualizations when page loads
+    document.addEventListener('DOMContentLoaded', function() {
+      // Update these paths to match your actual JSON file locations
+      embedVisualization('#slopechart', 'js/slopechart.json');
+      embedVisualization('#choroplethmap', 'js/choroplethmap.json');
+      embedVisualization('#dotmatrix', 'js/dotmatrix.json');
+      embedVisualization('#wordcloud', 'js/wordcloud.json');
+      embedVisualization('#lollipopchart', 'js/lollipopchart.json');
+      embedVisualization('#bubblechart', 'js/bubblechart.json');
+      embedVisualization('#radarchart', 'js/radarchart.json');
+    });
+  </script>
+</body>
+</html>

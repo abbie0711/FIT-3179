@@ -1,12 +1,12 @@
 {    
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": "State-Level Food Expenditure in Malaysia (2019)",
-  "width": 820,
+  "width": 600,
   "height": 420,
   "projection": {
     "type": "mercator",
     "center": [108.4, 4.5],   
-    "scale": 2500         
+    "scale": 2000         
   },
   "layer": [
     {
@@ -23,7 +23,7 @@
           "lookup": "properties.Name",
           "from": {
             "data": {
-              "url": "food_spending.csv"
+              "url": "https://raw.githubusercontent.com/abbie0711/FIT-3179/refs/heads/main/FinalDashboard/data/food_spending.csv"
             },
             "key": "State",
             "fields": ["Food Spending (%)"]

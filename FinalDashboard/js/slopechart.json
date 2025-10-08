@@ -1,0 +1,88 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Household Expenditure Pattern (2019 vs 2022)",
+  "width": 600,
+  "height": 400,
+  "data": {
+    "values": [
+      {"Expenditure Group": "Housing and utilities", "Year": "2019", "Composition (%)": 23.6},
+      {"Expenditure Group": "Housing and utilities", "Year": "2022", "Composition (%)": 23.2},
+      {"Expenditure Group": "Food and beverages", "Year": "2019", "Composition (%)": 16.3},
+      {"Expenditure Group": "Food and beverages", "Year": "2022", "Composition (%)": 17.3},
+      {"Expenditure Group": "Accommodation services", "Year": "2019", "Composition (%)": 13.9},
+      {"Expenditure Group": "Accommodation services", "Year": "2022", "Composition (%)": 16.1},
+      {"Expenditure Group": "Transport", "Year": "2019", "Composition (%)": 12.5},
+      {"Expenditure Group": "Transport", "Year": "2022", "Composition (%)": 11.3}
+    ]
+  },
+  "encoding": {
+    "x": {"field": "Year", "type": "ordinal", "title": "Year"},
+    "y": {
+      "field": "Composition (%)",
+      "type": "quantitative",
+      "scale": {"domain": [0, 25]},      
+      "axis": {
+        "title": "Composition (%)",
+        "values": [0, 5, 10, 15, 20, 25]  
+      }
+    },
+    "color": {
+      "field": "Expenditure Group",
+      "type": "nominal",
+      "scale": {
+        "domain": [
+          "Food and beverages",
+          "Housing and utilities",
+          "Accommodation services",
+          "Transport"
+        ],
+        "range": ["#1f77b4", "#999999", "#999999", "#999999"]
+      },
+      "legend": null
+    }
+  },
+  "layer": [
+    {
+      "mark": {"type": "line", "point": true, "strokeWidth": 2},
+      "encoding": {
+        "strokeWidth": {
+          "condition": {"test": "datum['Expenditure Group'] == 'Food and beverages'", "value": 3},
+          "value": 1.5
+        },
+        "tooltip": [
+          {"field": "Expenditure Group", "type": "nominal", "title": "Expenditure Group"},
+          {"field": "Year", "type": "ordinal", "title": "Year"},
+          {"field": "Composition (%)", "type": "quantitative", "title": "Composition (%)"}
+        ]
+      }
+    },
+    {
+      "transform": [{"filter": "datum.Year == '2022'"}],
+      "mark": {"type": "text", "align": "left", "dx": 5, "fontSize": 11},
+      "encoding": {
+        "text": {"field": "Composition (%)", "type": "quantitative", "format": ".1f"},
+        "x": {"field": "Year"},
+        "y": {"field": "Composition (%)"}
+      }
+    },
+    {
+      "transform": [{"filter": "datum.Year == '2019'"}],
+      "mark": {"type": "text", "align": "right", "dx": -5, "fontSize": 11},
+      "encoding": {
+        "text": {"field": "Composition (%)", "type": "quantitative", "format": ".1f"},
+        "x": {"field": "Year"},
+        "y": {"field": "Composition (%)"}
+      }
+    },
+    {
+      "transform": [{"filter": "datum.Year == '2022'"}],
+      "mark": {"type": "text", "align": "left", "dx": 30, "fontSize": 10.5},
+      "encoding": {
+        "text": {"field": "Expenditure Group"},
+        "x": {"field": "Year"},
+        "y": {"field": "Composition (%)"},
+        "color": {"value": "#333333"}
+      }
+    }
+  ]
+}

@@ -1,0 +1,275 @@
+{
+  "$schema": "https://vega.github.io/schema/vega/v5.json",
+  "width": 600,
+  "height": 600,
+  "padding": 50,
+  "autosize": "none",
+
+  "signals": [
+    {"name": "radius", "value": 200},
+    {"name": "radiusRange", "value": [0, 200]},
+    {"name": "centerX", "update": "width / 2"},
+    {"name": "centerY", "update": "height / 2"},
+    {
+      "name": "clear",
+      "value": true,
+      "on": [
+        {"events": "mouseup[!event.item]", "update": "true", "force": true}
+      ]
+    },
+    {
+      "name": "shift",
+      "value": false,
+      "on": [
+        {
+          "events": "@legendSymbol:click, @legendLabel:click",
+          "update": "event.shiftKey",
+          "force": true
+        }
+      ]
+    },
+    {
+      "name": "clicked",
+      "value": null,
+      "on": [
+        {
+          "events": "@legendSymbol:click, @legendLabel:click",
+          "update": "{value: datum.value}",
+          "force": true
+        }
+      ]
+    }
+  ],
+
+  "data": [
+    {
+      "name": "selected",
+      "on": [
+        {"trigger": "clear", "remove": true},
+        {"trigger": "!shift", "remove": true},
+        {"trigger": "!shift && clicked", "insert": "clicked"},
+        {"trigger": "shift && clicked", "toggle": "clicked"}
+      ]
+    },
+    {
+      "name": "hawker_data",
+      "url": "hawker_stall_share.csv",
+      "format": {"type": "csv", "parse": {"Share (%)": "number"}}
+    },
+    {
+      "name": "folded",
+      "source": "hawker_data",
+      "transform": [{"type": "fold", "fields": ["Share (%)"]}]
+    },
+    {
+      "name": "fields",
+      "source": "folded",
+      "transform": [
+        {
+          "type": "aggregate",
+          "groupby": ["State"],
+          "fields": ["value", "value"],
+          "ops": ["min", "max"]
+        }
+      ]
+    },
+    {
+      "name": "category_data",
+      "source": "hawker_data",
+      "transform": [
+        {
+          "type": "aggregate",
+          "groupby": ["Hawker stalls category", "State"],
+          "fields": ["Share (%)"],
+          "ops": ["sum"]
+        }
+      ]
+    },
+    {
+      "name": "folded_categories",
+      "source": "category_data",
+      "transform": [{"type": "fold", "fields": ["sum_Share (%)"]}]
+    }
+  ],
+
+  "scales": [
+    {
+      "name": "angle",
+      "type": "point",
+      "range": {"signal": "[-PI, PI]"},
+      "padding": 0.5,
+      "domain": {
+        "data": "fields",
+        "field": "State"
+      }
+    },
+    {
+      "name": "color",
+      "type": "ordinal",
+      "domain": ["Metal", "Large stall", "One piece", "Table", "Food truck"],
+      "range": ["#d1c4e9", "#ffcc80", "#add8e6", "#b2df8a", "#d2b48c"]
+    },
+    {
+      "name": "share",
+      "type": "linear",
+      "range": {"signal": "radiusRange"},
+      "domain": {"data": "hawker_data", "field": "Share (%)"},
+      "zero": true,
+      "nice": true
+    }
+  ],
+
+  "legends": [
+    {
+      "stroke": "color",
+      "title": "Hawker Stall Categories",
+      "orient": "none",
+      "legendX": 510,
+      "legendY":10,
+      "encode": {
+        "symbols": {
+          "name": "legendSymbol",
+          "interactive": true,
+          "update": {
+            "fill": {"value": "transparent"},
+            "strokeWidth": {"value": 2},
+            "opacity": [
+              {
+                "test": "!length(data('selected')) || indata('selected', 'value', datum.value)",
+                "value": 0.7
+              },
+              {"value": 0.15}
+            ],
+            "size": {"value": 64}
+          }
+        },
+        "labels": {
+          "name": "legendLabel",
+          "interactive": true,
+          "update": {
+            "fill": {"value": "black"},
+            "opacity": [
+              {
+                "test": "!length(data('selected')) || indata('selected', 'value', datum.value)",
+                "value": 1
+              },
+              {"value": 0.25}
+            ]
+          },
+          "hover": {"fill": {"value": "firebrick"}}
+        }
+      }
+    }
+  ],
+
+  "marks": [
+    {
+      "type": "group",
+      "from": {
+        "facet": {
+          "data": "folded_categories",
+          "name": "facet",
+          "groupby": "Hawker stalls category"
+        }
+      },
+      "marks": [
+        {
+          "name": "grid",
+          "from": {"data": "fields"},
+          "type": "rule",
+          "encode": {
+            "update": {
+              "x": {"signal": "centerX + radius * cos(scale('angle', datum.State))"},
+              "y": {"signal": "centerY + radius * sin(scale('angle', datum.State))"},
+              "x2": {"signal": "centerX"},
+              "y2": {"signal": "centerY"},
+              "stroke": {"value": "black"},
+              "strokeOpacity": {"value": 0.1}
+            }
+          }
+        },
+        {
+          "name": "label",
+          "from": {"data": "facet"},
+          "type": "text",
+          "encode": {
+            "update": {
+              "x": {"signal": "centerX + 1.25 * radius * cos(scale('angle', datum.State))"},
+              "y": {"signal": "centerY + 1.25 * radius * sin(scale('angle', datum.State))"},
+              "baseline": {"value": "middle"},
+              "text": {"field": "State"},
+              "align": {"value": "center"},
+              "fontSize": {"value": 10},
+              "fill": {"value": "#333"}
+            }
+          }
+        },
+        {
+          "type": "line",
+          "from": {"data": "facet"},
+          "interactive": true,
+          "encode": {
+            "update": {
+              "x": {
+                "signal": "centerX + scale('share', datum.value) * cos(scale('angle', datum.State))"
+              },
+              "y": {
+                "signal": "centerY + scale('share', datum.value) * sin(scale('angle', datum.State))"
+              },
+              "strokeWidth": {"value": 2},
+              "interpolate": {"value": "linear-closed"},
+              "opacity": [
+                {
+                  "test": "!length(data('selected')) || indata('selected', 'value', datum['Hawker stalls category'])",
+                  "value": 0.6
+                },
+                {"value": 0.15}
+              ],
+              "stroke": {
+                "scale": "color",
+                "field": "Hawker stalls category"
+              },
+              "fill": {
+                "scale": "color",
+                "field": "Hawker stalls category"
+              },
+              "fillOpacity": {"value": 0.2}
+            },
+            "enter": {
+              "tooltip": {
+                "signal": "{'Category': datum['Hawker stalls category'], 'State': datum.State, 'Share (%)': format(datum.value, '.1f') + '%'}"
+              }
+            }
+          }
+        },
+        {
+          "type": "symbol",
+          "from": {"data": "facet"},
+          "encode": {
+            "update": {
+              "x": {
+                "signal": "centerX + scale('share', datum.value) * cos(scale('angle', datum.State))"
+              },
+              "y": {
+                "signal": "centerY + scale('share', datum.value) * sin(scale('angle', datum.State))"
+              },
+              "fill": {
+                "scale": "color",
+                "field": "Hawker stalls category"
+              },
+              "fillOpacity": {"value": 0.8},
+              "stroke": {"value": "white"},
+              "strokeWidth": {"value": 1},
+              "size": {"value": 30}
+            },
+            "enter": {
+              "tooltip": {
+                "signal": "{'Category': datum['Hawker stalls category'], 'State': datum.State, 'Share (%)': format(datum.value, '.1f') + '%'}"
+              }
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

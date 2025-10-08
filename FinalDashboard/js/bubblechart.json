@@ -1,0 +1,90 @@
+{
+  "$schema": "https://vega.github.io/schema/vega/v5.json",
+  "width": 600,
+  "height": 400,
+  "padding": 20,
+  "title": "Number of Hawker Stalls by Category",
+  "data": [
+    {
+      "name": "stalls",
+      "values": [
+        {"category": "Metal", "count": 8826, "x": 300, "y": 200},
+        {"category": "Large stall", "count": 5984, "x": 194, "y": 150},
+        {"category": "One piece", "count": 5839, "x": 408, "y": 150},
+        {"category": "Table", "count": 3620, "x": 200, "y": 260},
+        {"category": "Food truck", "count": 678, "x": 350, "y": 290}
+      ]
+    }
+  ],
+  "scales": [
+    {
+      "name": "color",
+      "type": "ordinal",
+      "domain": {"data": "stalls", "field": "category"},
+      "range": ["#d1c4e9", "#ffcc80", "#add8e6", "#b2df8a", "#d2b48c"]
+    },
+    {
+      "name": "size",
+      "type": "sqrt",
+      "domain": [0, 9000],
+      "range": [2000, 15000]  
+    }
+  ],
+  "legends": [
+    {
+      "fill": "color",
+      "title": "Hawker Stall Category",
+      "orient": "right"
+    }
+  ],
+  "marks": [
+    {
+      "type": "symbol",
+      "from": {"data": "stalls"},
+      "encode": {
+        "enter": {
+          "x": {"field": "x"},
+          "y": {"field": "y"},
+          "size": {"scale": "size", "field": "count"},
+          "fill": {"scale": "color", "field": "category"},
+          "stroke": {"value": "white"},
+          "strokeWidth": {"value": 2},
+          "tooltip": {
+            "signal": "{'Category': datum.category, 'Number of Stalls': format(datum.count, ',')}"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "from": {"data": "stalls"},
+      "encode": {
+        "enter": {
+          "x": {"field": "x"},
+          "y": {"field": "y", "offset": -8},
+          "text": {"field": "category"},
+          "align": {"value": "center"},
+          "baseline": {"value": "middle"},
+          "fill": {"value": "black"},
+          "fontSize": {"value": 12},  
+          "fontWeight": {"value": "bold"}
+        }
+      }
+    },
+    {
+      "type": "text",
+      "from": {"data": "stalls"},
+      "encode": {
+        "enter": {
+          "x": {"field": "x"},
+          "y": {"field": "y", "offset": 8},
+          "text": {"field": "count", "format": ","},
+          "align": {"value": "center"},
+          "baseline": {"value": "middle"},
+          "fill": {"value": "#333"},
+          "fontSize": {"value": 12}  
+        }
+      }
+    }
+  ]
+}

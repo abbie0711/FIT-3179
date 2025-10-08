@@ -1,0 +1,89 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Food & Beverage Spending by Ethnic Group",
+  "width": 500,
+  "height": 120,
+  "data": {
+    "values": [
+      {"ethnic_group": "Malays", "percentage": 18.9},
+      {"ethnic_group": "Chinese", "percentage": 14.3},
+      {"ethnic_group": "Indian", "percentage": 15.8},
+      {"ethnic_group": "Others", "percentage": 22.1}
+    ]
+  },
+
+  "params": [
+    {
+      "name": "EthnicGroupSelect",
+      "value": "All",
+      "bind": {
+        "input": "select",
+        "options": ["All", "Malays", "Chinese", "Indian", "Others"],
+        "name": "Select Ethnic Group: "
+      }
+    }
+  ],
+
+  "transform": [
+    {
+      "filter": "EthnicGroupSelect == 'All' || datum.ethnic_group == EthnicGroupSelect"
+    },
+    {
+      "calculate": "floor(datum.percentage)",
+      "as": "dot_count"
+    },
+    {
+      "calculate": "sequence(1, datum.dot_count)",
+      "as": "dot_id"
+    },
+    {
+      "flatten": ["dot_id"]
+    },
+    {
+      "calculate": "((datum.dot_id - 1) % 10) + 1",
+      "as": "column"
+    },
+    {
+      "calculate": "floor((datum.dot_id - 1) / 10) + 1",
+      "as": "row"
+    }
+  ],
+
+  "mark": "circle",
+
+  "encoding": {
+    "x": {
+      "field": "column",
+      "type": "ordinal",
+      "axis": null,
+      "scale": {"domain": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]}
+    },
+    "y": {
+      "field": "row",
+      "type": "ordinal",
+      "axis": null
+    },
+    "row": {
+      "field": "ethnic_group",
+      "type": "nominal",
+      "title": "Ethnic Group",
+      "header": {"labelAngle": 0, "labelAlign": "right"}
+    },
+    "color": {
+      "field": "ethnic_group",
+      "type": "nominal",
+      "scale": {"scheme": "set1"},
+      "legend": null
+    },
+    "size": {"value": 250},
+    "tooltip": [
+      {"field": "ethnic_group", "type": "nominal", "title": "Ethnic Group"},
+      {"field": "percentage", "type": "quantitative", "title": "Food & Beverage %", "format": ".1f"}
+    ]
+  },
+
+  "config": {
+    "view": {"stroke": "transparent"},
+    "axis": {"grid": false}
+  }
+}

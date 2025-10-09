@@ -4,7 +4,7 @@
 /* Base styles */
 body {
     font-family: 'Source Sans Pro', sans-serif;
-    background-color: #f8f8f8;
+    background-color: #d4d0d0;
     color: #333;
     line-height: 1.6;
     margin: 0;
@@ -13,9 +13,9 @@ body {
 
 /* Newspaper container */
 .newspaper-container {
-    max-width: 1200px;
+    max-width: 100%;
     margin: 0 auto;
-    background: white;
+    background: #f0f0f0;
     box-shadow: 0 0 20px rgba(0,0,0,0.1);
     padding: 20px;
 }
@@ -71,16 +71,18 @@ body {
 
 .chart-description {
     font-size: 0.9rem;
-    color: #7f8c8d;
+    color: #0e1f36;
     margin-bottom: 15px;
-    line-height: 1.5;
+    line-height: 1.6;
+    white-space: normal;
+    word-wrap: break-word;
 }
 
-/* Chart styling */
+/* Chart styling - REMOVED FRAMES */
 .vega-embed {
-    background: white;
-    border-radius: 4px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    background: transparent;
+    border-radius: 0;
+    box-shadow: none;
 }
 
 /* Section headers */
@@ -118,9 +120,3 @@ body {
 .news-column {
     column-gap: 30px;
 }
-
-/* Remove hover effects since we removed the boxes */
-/* .chart-container:hover {
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    transition: box-shadow 0.3s ease;
-} */

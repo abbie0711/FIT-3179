@@ -60,6 +60,13 @@ body {
     margin-top: 15px;
 }
 
+.chart-wrapper {
+  background: transparent;     
+  padding: 10px 20px;          
+  margin: 15px 0;              
+  border: none;                
+}
+
 .chart-title {
     font-family: 'Playfair Display', serif;
     font-size: 1.4rem;

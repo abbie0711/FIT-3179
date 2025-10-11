@@ -48,7 +48,7 @@ body {
 
 /* Grid layout */
 .pure-g {
-    margin-bottom: 40px;
+    margin-bottom: 0px;
 }
 
 .chart-container {
@@ -57,6 +57,7 @@ body {
     border: none;
     box-shadow: none;
     margin-bottom: 40px;
+    margin-top: 15px;
 }
 
 .chart-title {
@@ -64,18 +65,23 @@ body {
     font-size: 1.4rem;
     font-weight: 700;
     color: #2c3e50;
-    margin-bottom: 15px;
-    border-bottom: 1px solid #ecf0f1;
-    padding-bottom: 8px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    padding-left: 30px;
+    margin: 0px 20px; 
+    margin-top: 6px;
 }
 
 .chart-description {
-    font-size: 0.9rem;
+    padding-right: 30px;
+    padding-bottom: 20px;
+    padding-left: 30px;
+    margin: 20px;  
+    margin-top: 0px;       
+    font-size: 16px;
     color: #0e1f36;
-    margin-bottom: 15px;
     line-height: 1.6;
-    white-space: normal;
-    word-wrap: break-word;
+    text-align: justify;
 }
 
 /* Chart styling - REMOVED FRAMES */
@@ -91,29 +97,13 @@ body {
     font-size: 2rem;
     font-weight: 700;
     color: #2c3e50;
-    margin: 40px 0 20px 0;
     border-bottom: 2px solid #3498db;
-    padding-bottom: 10px;
-}
+    padding-right: 20px;
+    padding-bottom: 20px;
+    padding-left: 30px;
+    margin: 20px; 
+    margin-bottom: 10px;
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .newspaper-container {
-        padding: 10px;
-    }
-    
-    .main-title {
-        font-size: 2rem;
-    }
-    
-    .chart-container {
-        padding: 0;
-        margin-bottom: 30px;
-    }
-    
-    .section-header {
-        font-size: 1.6rem;
-    }
 }
 
 /* Newspaper column effect */

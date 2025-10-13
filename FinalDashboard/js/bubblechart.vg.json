@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega/v5.json",
   "width": 390,
-  "height": 440,
+  "height": 435,
   "padding": 20,
   "title": {
     "text": "Number of Hawker Stalls by Category",

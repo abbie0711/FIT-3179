@@ -86,7 +86,13 @@
         "text": {"field": "Expenditure Group"},
         "x": {"field": "Year"},
         "y": {"field": "Composition (%)"},
-        "color": {"value": "#333333"}
+        "color": {
+          "condition": {
+            "test": "datum['Expenditure Group'] == 'Food and beverages'",
+            "value": "#1f77b4"
+          },
+          "value": "#333333"
+        }
       }
     }
   ]

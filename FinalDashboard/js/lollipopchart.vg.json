@@ -76,7 +76,7 @@
           "title": "Region",
           "scale": {
             "domain": ["Peninsular", "East"],
-            "range": ["#1f77b4", "#ff7f0e"]
+            "range": ["#6F4E37", "#CD853F"]
           }
         },
         "tooltip": [

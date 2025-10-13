@@ -193,6 +193,21 @@
           }
         },
         {
+          "name": "outer-line",
+          "type": "line",
+          "from": {"data": "fields"},
+          "encode": {
+            "update": {
+              "x": {"signal": "centerX + radius * cos(scale('angle', datum.State))"},
+              "y": {"signal": "centerY + radius * sin(scale('angle', datum.State))"},
+              "stroke": {"value": "#888"},
+              "strokeWidth": {"value": 1.5},
+              "interpolate": {"value": "linear-closed"},
+              "opacity": {"value": 0.5}
+            }
+          }
+        },
+        {
           "name": "label",
           "from": {"data": "facet"},
           "type": "text",

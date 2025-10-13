@@ -12,11 +12,11 @@
     {
       "name": "stalls",
       "values": [
-        {"category": "Metal", "count": 8826, "x": 274, "y": 200},
-        {"category": "Large stall", "count": 5984, "x": 164, "y": 150},
-        {"category": "One piece", "count": 5839, "x": 381, "y": 150},
-        {"category": "Table", "count": 3620, "x": 200, "y": 290},
-        {"category": "Food truck", "count": 678, "x": 350, "y": 270}
+        {"category": "Metal", "count": 8826, "x": 244, "y": 200},
+        {"category": "Large stall", "count": 5984, "x": 134, "y": 150},
+        {"category": "One piece", "count": 5839, "x": 350, "y": 150},
+        {"category": "Table", "count": 3620, "x": 170, "y": 290},
+        {"category": "Food truck", "count": 678, "x": 320, "y": 270}
       ]
     }
   ],

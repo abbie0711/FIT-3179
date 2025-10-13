@@ -30,10 +30,29 @@
     </header>
 
     <!-- Introduction Section -->
-    <section class="pure-g">
-      <div class="pure-u-1">
-        <div class="chart-description">
-          <p>Malaysia's street food culture is a vibrant tapestry of flavors, reflecting the nation's diverse ethnic heritage. This dashboard explores various aspects of hawker culture across different states and communities, starting with expenditure patterns and moving through geographic distribution to cultural diversity.</p>
+    <section class="pure-g intro-section">
+      <!-- Left side: Image -->
+      <div class="pure-u-1 pure-u-md-2-5">
+        <div class="intro-image-container">
+          <img src="images/hawker_stall.jpg" alt="Hawker Stall in Malaysia" class="intro-image">
+          <p class="image-caption">A bustling Malaysian hawker stall scene at night.</p>
+        </div>
+      </div>
+
+      <!-- Right side: Text -->
+      <div class="pure-u-1 pure-u-md-3-5">
+        <div class="intro-text">
+          <p>
+            Malaysia's street food culture is a vibrant blend of flavors and traditions, 
+            reflecting the country's rich ethnic diversity. 
+            This dashboard takes you through different aspects of hawker culture — 
+            from household spending habits and regional distribution to food diversity and 
+            business structure.
+          </p>
+          <p>
+            Each visual highlights how street food connects communities, drives local economies 
+            and shapes Malaysia’s national identity through its shared love for good food.
+          </p>
         </div>
       </div>
     </section>
@@ -62,14 +81,13 @@
       </div>
     </section>      
    
-
     <!-- Section 2: Choropleth Map with Text Beside -->
     <section class="pure-g">
       <div class="pure-u-1">
         <h2 class="section-header">Geographic Distribution</h2>
       </div>
       
-      <!-- Map on the left -->
+      <!-- Visualization on the left -->
       <div class="pure-u-1 pure-u-lg-3-5">
         <div class="chart-container">
           <div id="choroplethmap"></div>
@@ -80,10 +98,17 @@
       <div class="pure-u-1 pure-u-lg-2-5">
         <div class="chart-container" style="margin-left: 40px;">
           <h3 class="chart-title">Food Spending Patterns</h3>
-          <p class="chart-description">This choropleth map reveals fascinating geographic patterns in food expenditure across Malaysian states. The visualization builds directly on the household expenditure trends shown earlier.</p>
-          <p class="chart-description">Darker shades indicate higher food spending percentages, showing which states allocate larger portions of their household budgets to food and beverages.</p>
-          <p class="chart-description">Urban centers and developed states typically show different spending patterns compared to more rural areas, reflecting variations in income levels, cost of living, and food culture preferences across the country.</p>
-          <p class="chart-description">These geographic variations help explain the diverse hawker culture that has developed to meet different regional demands and spending capacities.</p>
+          <p class="chart-description">
+            Here we can explore how food spending differs across Malaysia’s states, showing how households from different regions manage their food budgets. 
+          </p>
+          <p class="chart-description">
+            States with darker shades tend to have higher spending, often linked to urban lifestyles and higher food costs. 
+            Lighter regions show lower spending, where cooking at home and local produce are more common.
+          </p>
+          <p class="chart-description">
+            These differences reflect how income levels, lifestyle and cultural habits shape Malaysia’s diverse food landscape, 
+            helping explain why some regions have richer hawker cultures and stronger street food presence.
+          </p>
         </div>
       </div>
     </section>
@@ -96,7 +121,7 @@
 
       <!-- Dot Matrix Chart -->
       <div class="pure-u-1 pure-u-lg-1-2">
-        <div class="chart-container" style="margin-right: 20px;">
+        <div class="chart-container" style="margin-right: 30px;">
           <h3 class="chart-title">Food & Beverage Spending by Ethnic Group</h3>
           <p class="chart-description">
             This chart shows how different ethnic groups in Malaysia spend their household budget on food and beverages.
@@ -111,7 +136,7 @@
 
       <!-- Word Cloud Chart -->
       <div class="pure-u-1 pure-u-lg-1-2">
-        <div class="chart-container" style="margin-left: 20px;">
+        <div class="chart-container" style="margin-left: 30px;">
           <h3 class="chart-title">Popular Foods by State</h3>
           <p class="chart-description">
             Now we can look into the most popular foods across different Malaysian states.
@@ -130,12 +155,30 @@
       <div class="pure-u-1">
         <h2 class="section-header">Hawker Infrastructure Distribution</h2>
       </div>
-      
-      <div class="pure-u-1">
+
+      <!-- Chart on the left -->
+      <div class="pure-u-1 pure-u-lg-3-5">
         <div class="chart-container">
-          <h3 class="chart-title">Hawker Stall Distribution by State</h3>
-          <p class="chart-description">Detailed breakdown of hawker stall numbers in each state, showing the infrastructure that supports Malaysia's vibrant food culture.</p>
           <div id="lollipopchart"></div>
+        </div>
+      </div>
+
+      <!-- Text and title on the right -->
+      <div class="pure-u-1 pure-u-lg-2-5">
+        <div class="chart-container" style="margin-left: 40px;">
+          <h3 class="chart-title">Hawker Stall Distribution by State</h3>
+          <p class="chart-description">
+            This visualization compares the number of hawker stalls across Malaysian states,
+            giving a clear picture of where street food culture is most active.
+          </p>
+          <p class="chart-description">
+            States with larger numbers of stalls reflect stronger community support for
+            hawker businesses, while smaller numbers may indicate growing or emerging markets.
+          </p>
+          <p class="chart-description">
+            The distribution also helps us understand how urban development, tourism,
+            and local demand influence the presence and diversity of hawker stalls across regions.
+          </p>
         </div>
       </div>
     </section>
@@ -145,25 +188,38 @@
       <div class="pure-u-1">
         <h2 class="section-header">Hawker Business Analysis</h2>
       </div>
-      
+
+      <!-- Left: Bubble Chart -->
       <div class="pure-u-1 pure-u-lg-1-2">
-        <div class="chart-container" style="margin-right: 20px;">
+        <div class="chart-container" style="margin-right: 30px;">
           <h3 class="chart-title">Stall Categories Distribution</h3>
-          <p class="chart-description">Bubble chart showing the prevalence of different hawker stall types, from traditional setups to modern food trucks.</p>
+          <p class="chart-description">
+            This section shows how common each type of hawker stall is in Malaysia.  
+            Larger circles represent stall types that appear more often across the country.
+            <br /><br />
+            It gives a quick view of how traditional stalls remain popular while  
+            newer setups like food trucks are slowly becoming part of the food culture.
+          </p>
           <div id="bubblechart"></div>
         </div>
       </div>
-      
+
+      <!-- Right: Radar Chart -->
       <div class="pure-u-1 pure-u-lg-1-2">
-        <div class="chart-container" style="margin-left: 20px;">
+        <div class="chart-container" style="margin-left: 30px;">
           <h3 class="chart-title">Stall Categories by State</h3>
-          <p class="chart-description">Radar chart showing how different states vary in their mix of hawker stall infrastructure and facilities.</p>
+          <p class="chart-description">
+            Each state in Malaysia has its own mix of hawker stall types,  
+            depending on local demand and food traditions.
+            <br /><br />
+            This comparison helps us see how cultural and economic factors  
+            shape the food landscape from one state to another.
+          </p>
           <div id="radarchart"></div>
         </div>
       </div>
     </section>
 
-  </div>
 
   <script type="text/javascript">
     // Function to embed Vega visualizations

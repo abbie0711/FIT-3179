@@ -77,7 +77,9 @@
     "color": {
       "field": "ethnic_group",
       "type": "nominal",
-      "scale": {"scheme": "set1"},
+      "scale": {
+        "range": ["#C9A0DC", "#7EC8E3", "#FFB6C1", "#FFB347"]
+      },
       "legend": null
     },
     "size": {"value": 250},

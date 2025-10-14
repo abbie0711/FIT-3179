@@ -25,7 +25,7 @@
       "name": "color",
       "type": "ordinal",
       "domain": {"data": "stalls", "field": "category"},
-      "range": ["#d1c4e9", "#ffcc80", "#add8e6", "#b2df8a", "#d2b48c"]
+      "range": ["#d1c4e9", "#ffcc80", "#add8e6", "#b2df8a", "#b39978"]
     },
     {
       "name": "size",

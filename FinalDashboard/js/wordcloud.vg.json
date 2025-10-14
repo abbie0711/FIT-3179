@@ -17,7 +17,7 @@
         "name": "Choose a state: ",
         "options": [
           "All States",
-          "National",
+          "Kuala Lumpur",
           "Penang",
           "Kelantan",
           "Perlis",
@@ -40,27 +40,31 @@
     {
       "name": "raw",
       "values": [
-        {"food": "Nasi Lemak", "state": "National", "popularity": 95},
-        {"food": "Roti Canai", "state": "National", "popularity": 90},
+        {"food": "Nasi Lemak", "state": "Kuala Lumpur", "popularity": 95},
+        {"food": "Roti Canai", "state": "Kuala Lumpur", "popularity": 88},
+        {"food": "Asam Pedas", "state": "Melaka", "popularity": 45},
         {"food": "Siew Pao", "state": "Negeri Sembilan", "popularity": 77},
         {"food": "Satay", "state": "Selangor", "popularity": 85},
         {"food": "Laksa", "state": "Penang", "popularity": 80},
         {"food": "Cendol", "state": "Penang", "popularity": 75},
-        {"food": "Char Kuey Teow", "state": "Penang", "popularity": 88},
+        {"food": "Char Kuey Teow", "state": "Penang", "popularity": 90},
         {"food": "Nasi Kerabu", "state": "Kelantan", "popularity": 70},
         {"food": "Nasi Tumpang", "state": "Kelantan", "popularity": 68},
         {"food": "Ayam Percik", "state": "Kelantan", "popularity": 65},
         {"food": "Ikan Bakar", "state": "Perlis", "popularity": 60},
         {"food": "Ipoh Hor Fun", "state": "Perak", "popularity": 45},
         {"food": "Nasi Daging", "state": "Kedah", "popularity": 77},
+        {"food": "Peknga", "state": "Kedah", "popularity": 48},
         {"food": "Nasi Dagang", "state": "Terengganu", "popularity": 55},
         {"food": "Keropok Lekor", "state": "Terengganu", "popularity": 53},
         {"food": "Tempoyak", "state": "Pahang", "popularity": 40},
         {"food": "Puding Diraja", "state": "Pahang", "popularity": 43},
         {"food": "Mee Kolok", "state": "Sarawak", "popularity": 73},
-        {"food": "Hinava", "state": "Sabah", "popularity": 33},
-        {"food": "Mee Tuaran", "state": "Sabah", "popularity": 34},
+        {"food": "Manok Pansuh", "state": "Sarawak", "popularity": 30},
+        {"food": "Hinava", "state": "Sabah", "popularity": 50},
+        {"food": "Mee Tuaran", "state": "Sabah", "popularity": 45},
         {"food": "Kacang Pool", "state": "Johor", "popularity": 61},
+        {"food": "Pisang Goreng", "state": "Johor", "popularity": 49},
         {"food": "Pie Tee", "state": "Melaka", "popularity": 62},
         {"food": "Bak Kut Teh", "state": "Selangor", "popularity": 50}
       ]
@@ -89,7 +93,9 @@
       "name": "stateColor",
       "type": "ordinal",
       "domain": {"data": "raw", "field": "state"},
-      "range": {"scheme": "category20"}
+      "range": ["#1f77b4", "#ff7f0e", "#2ca02c", "#9467bd", "#8c564b", "#e377c2", 
+                "#7f7f7f", "#bcbd22", "#17becf", "#aec7e8", "#ffbb78", "#98df8a", 
+                "#c5b0d5", "#c49c94"]
     }
   ],
 

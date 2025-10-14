@@ -111,7 +111,7 @@
       "name": "color",
       "type": "ordinal",
       "domain": ["Metal", "Large stall", "One piece", "Table", "Food truck"],
-      "range": ["#d1c4e9", "#ffcc80", "#add8e6", "#b2df8a", "#d2b48c"]
+      "range": ["#af9bd8", "#f5b960", "#7dc4dc", "#83be4e", "#a18766"]
     },
     {
       "name": "share",
@@ -203,7 +203,7 @@
               "stroke": {"value": "#888"},
               "strokeWidth": {"value": 1.5},
               "interpolate": {"value": "linear-closed"},
-              "opacity": {"value": 0.5}
+              "opacity": {"value": 0.2}
             }
           }
         },

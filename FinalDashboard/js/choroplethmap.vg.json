@@ -43,7 +43,7 @@
           "title": "Food Spending (%)",
           "scale": {
           "scheme": "blues",
-          "domain": [0, 30],  
+          "domain": [0, 40],  
           "nice": true
       },
         "legend": {

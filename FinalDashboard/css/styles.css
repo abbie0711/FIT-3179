@@ -1,176 +1,86 @@
 /* Import Google Font for newspaper style */
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Sans+Pro:wght@300;400;600&display=swap');
 
+html, body {
+  width: 100%;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
 /* Base styles */
 body {
-    font-family: 'Source Sans Pro', sans-serif;
-    background-color: #d4d0d0;
-    color: #333;
-    line-height: 1.6;
-    margin: 0;
-    padding: 0;
+  font-family: 'Source Sans Pro', sans-serif;
+  background: linear-gradient(to bottom, #f6ecda, #e0c7aa, #c2b18f);
+  color: #333;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
 }
 
 /* Newspaper container */
 .newspaper-container {
-    max-width: 1220px;
-    margin: 0 auto;
-    background: #f0f0f0;
-    box-shadow: 0 0 20px rgba(0,0,0,0.1);
-    padding: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+  background: #f7f4e9;
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+  padding: 20px;
+  border-radius: 4px;
+  border: 1px solid #d6d3d1;
 }
 
-/* Header styles */
+/* ============================== */
+/* FIGURE–GROUND: Header + Footer */
+/* ============================== */
+
+/* Warm gradient header (stands out on light background) */
 .newspaper-header {
-    text-align: center;
-    border-bottom: 3px double #333;
-    padding-bottom: 20px;
-    margin-bottom: 30px;
+  text-align: center;
+  background: linear-gradient(to bottom, #d8c3a5, #cbb994);
+  border-bottom: 3px double #8b7b5b;
+  padding: 25px 0;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
 .main-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 3rem;
-    font-weight: 700;
-    color: #2c3e50;
-    margin: 0;
-    text-transform: uppercase;
-    letter-spacing: 2px;
+  font-family: 'Playfair Display', serif;
+  font-size: 2.9rem;
+  font-weight: 700;
+  color: #3e2f1c;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
 .subtitle {
-    font-family: 'Source Sans Pro', sans-serif;
-    font-size: 1.2rem;
-    color: #7f8c8d;
-    font-weight: 300;
-    margin-top: 10px;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 1.1rem;
+  color: #4e4639;
+  font-weight: 400;
+  margin-top: 10px;
 }
 
-/* Introduction Section */
-.intro-section {
-  margin: 40px auto;
-  margin-left: 40px;
-  max-width: 1200px;
-  align-items: center;
-}
-
-.intro-image-container {
-  text-align: center;
-  padding: 80px;
-  margin-left: 80px;
-}
-
-.intro-image {
-  max-width: 100%;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-.image-caption {
-  font-size: 13px;
-  color: #666;
-  margin-top: 8px;
-  font-style: italic;
-}
-
-.intro-text {
-  padding: 0px 100px;
-  margin-bottom: 50px;
-  text-align: justify;
-  font-size: 16px;
-  color: #0e1f36;
-}
-
-.intro-text p {
-  font-size: 16px;
-  line-height: 1.6;
-  color: #0e1f36;
-}
-
-
-/* Grid layout */
-.pure-g {
-    margin-bottom: 0px;
-}
-
-.chart-container {
-    background: transparent;
-    padding: 0;
-    border: none;
-    box-shadow: none;
-    margin-bottom: 40px;
-    margin-top: 15px;
-}
-
-.chart-wrapper {
-  background: transparent;     
-  padding: 10px 20px;          
-  margin-left: 0px;             
-  margin-right: 5px;
-  border: none;                
-}
-
-.chart-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.4rem;
-    font-weight: 700;
-    color: #2c3e50;
-    padding-right: 20px;
-    padding-bottom: 20px;
-    padding-left: 30px;
-    margin: 0px 20px; 
-    margin-top: 6px;
-}
-
-.chart-description {
-    padding-right: 30px;
-    padding-bottom: 20px;
-    padding-left: 30px;
-    margin: 20px;  
-    margin-top: 0px;       
-    font-size: 16px;
-    color: #0e1f36;
-    line-height: 1.6;
-    text-align: justify;
-}
-
-/* Chart styling - REMOVED FRAMES */
-.vega-embed {
-    background: transparent;
-    border-radius: 0;
-    box-shadow: none;
-}
-
-/* Section headers */
-.section-header {
-    font-family: 'Playfair Display', serif;
-    font-size: 2rem;
-    font-weight: 700;
-    color: #2c3e50;
-    border-bottom: 2px solid #8c9aa4;
-    padding-right: 20px;
-    padding-bottom: 20px;
-    padding-left: 30px;
-    margin: 20px; 
-    margin-bottom: 10px;
-
-}
-
+/* Warm footer to balance the page visually */
 footer.credits {
+  width: 100%;
   text-align: center;
+  background: linear-gradient(to top, #d8c3a5, #cbb994);
+  color: #3e2f1c;
   margin-top: 40px;
-  padding: 20px 0;
-  border-top: 1px solid #898484;
+  padding: 25px 0;
+  border-top: 2px solid #8b7b5b;
+  box-shadow: 0 -4px 10px rgba(0,0,0,0.1);
   font-size: 14px;
-  color: #474545;
 }
 
 footer.credits a {
-  color: #1f77b4;
+  color: #5a4332;
+  font-weight: 600;
   text-decoration: none;
 }
 
 footer.credits a:hover {
+  color: #8b6a49;
   text-decoration: underline;
 }
 
@@ -179,8 +89,161 @@ footer.credits p {
   line-height: 1.6;
 }
 
+/* ============================== */
+/* Introduction Image Container  */
+/* ============================== */
+
+.intro-image-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #f6ecda; 
+  border: 1px solid #c2b280; 
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  max-width: 100%;
+  margin-left: 40px;
+}
+
+.intro-image-container:hover {
+  transform: scale(1.02);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+}
+
+.intro-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+  border: 2px solid #d4b483; 
+}
+
+.image-caption {
+  font-size: 14px;
+  font-style: italic;
+  color: #5a4e3b;
+  margin-top: 10px;
+  text-align: center;
+  line-height: 1.4;
+}
+
+/* ============================== */
+/* Introduction Text Section      */
+/* ============================== */
+
+.intro-text {
+  background: #f6ecda; /* soft beige paper tone to match image container */
+  border: 1px solid #d6c6a1;
+  border-radius: 8px;
+  padding: 25px 40px;
+  margin: 20px 60px 50px 60px; /* more space on the right, less on left */
+  text-align: justify;
+  color: #2c2a1f;
+  line-height: 1.7;
+  font-size: 16px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.intro-text:hover {
+  transform: scale(1.01);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.12);
+}
+
+.intro-text p {
+  margin: 0;
+}
+
+.intro-text strong {
+  color: #8b6b35; /* highlight key words in warm brown tone */
+  font-weight: 600;
+}
+
+/* Make sure the layout looks good side-by-side on larger screens */
+@media (min-width: 768px) {
+  .intro-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .intro-image-container {
+    flex: 1;
+    margin-right: 20px;
+  }
+
+  .intro-text {
+    flex: 1;
+  }
+}
+
+/* ============================== */
+/* Chart & Section Styling */
+/* ============================== */
+
+.chart-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #614e35;
+  margin: 0 20px;
+  padding: 0 30px 20px;
+}
+
+.chart-description {
+  padding: 0 30px 20px;
+  margin: 5px 20px;
+  font-size: 16px;
+  color: #2c2a1f;
+  line-height: 1.6;
+  text-align: justify;
+}
+
+.chart-container {
+    background: transparent;
+    padding: 10px 20px;
+    border: none;
+    box-shadow: none;
+    margin-bottom: 40px;
+    margin-top: 10px;
+}
+
+.section-header {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #3e2f1c;
+  border-bottom: 2px solid #978d6f;
+  margin: 20px;
+  padding: 0 20px 20px;
+}
+
+.text-container {
+  background: #faf7ef; /* subtle newspaper beige */
+  border: 1px solid #d4c9a1;
+  border-radius: 6px;
+  padding: 20px 25px;
+  margin: 10px 0;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.text-container:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Chart styling */
+.vega-embed {
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
+}
 
 /* Newspaper column effect */
 .news-column {
-    column-gap: 30px;
+  column-count: 2;
+  column-gap: 30px;
 }

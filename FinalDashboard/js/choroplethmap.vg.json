@@ -1,4 +1,4 @@
-{    
+{
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "background": "#f0f0f0",
   "title": {
@@ -10,8 +10,8 @@
   "height": 390,
   "projection": {
     "type": "mercator",
-    "center": [108.3, 4],   
-    "scale": 2000         
+    "center": [108.3, 4],
+    "scale": 2000
   },
   "layer": [
     {
@@ -42,16 +42,16 @@
           "type": "quantitative",
           "title": "Food Spending (%)",
           "scale": {
-          "scheme": "blues",
-          "domain": [0, 40],  
-          "nice": true
-      },
-        "legend": {
-          "title": "Food Spending (%)",
-          "direction": "vertical",
-          "orient": "right"
-      }
-    },
+            "domain": [9, 13, 17, 21, 25],
+            "range": ["#deebf7", "#9ecae1", "#4292c6", "#08519c", "#08306b"]
+          },
+          "legend": {
+            "title": "Food Spending (%)",
+            "direction": "vertical",
+            "orient": "right",
+            "tickCount": 5
+          }
+        },
         "tooltip": [
           {"field": "properties.Name", "type": "nominal", "title": "State"},
           {"field": "Food Spending (%)", "type": "quantitative", "title": "Food Spending %"}

@@ -6,18 +6,18 @@
     "anchor": "middle",
     "dy": -5
   },
-  "width": 600,
+  "width": 435,
   "height": 400,
   "data": {
     "values": [
       {"Expenditure Group": "Housing and utilities", "Year": "2019", "Composition (%)": 23.6},
-      {"Expenditure Group": "Housing and utilities", "Year": "2022", "Composition (%)": 23.2},
+      {"Expenditure Group": "Housing and utilities", "Year": "2022", "Composition (%)": 22.2},
       {"Expenditure Group": "Food and beverages", "Year": "2019", "Composition (%)": 16.3},
       {"Expenditure Group": "Food and beverages", "Year": "2022", "Composition (%)": 17.3},
-      {"Expenditure Group": "Accommodation services", "Year": "2019", "Composition (%)": 13.9},
-      {"Expenditure Group": "Accommodation services", "Year": "2022", "Composition (%)": 16.1},
-      {"Expenditure Group": "Transport", "Year": "2019", "Composition (%)": 12.5},
-      {"Expenditure Group": "Transport", "Year": "2022", "Composition (%)": 11.3}
+      {"Expenditure Group": "Accommodation services", "Year": "2019", "Composition (%)": 12.9},
+      {"Expenditure Group": "Accommodation services", "Year": "2022", "Composition (%)": 14.1},
+      {"Expenditure Group": "Transport", "Year": "2019", "Composition (%)": 11.5},
+      {"Expenditure Group": "Transport", "Year": "2022", "Composition (%)": 9.3}
     ]
   },
   "encoding": {
@@ -72,7 +72,11 @@
     },
     {
       "transform": [{"filter": "datum.Year == '2019'"}],
-      "mark": {"type": "text", "align": "right", "dx": -5, "fontSize": 11},
+      "mark": {
+        "type": "text", 
+        "align": "right", 
+        "dx": -5, 
+        "fontSize": 11},
       "encoding": {
         "text": {"field": "Composition (%)", "type": "quantitative", "format": ".1f"},
         "x": {"field": "Year"},
@@ -81,7 +85,13 @@
     },
     {
       "transform": [{"filter": "datum.Year == '2022'"}],
-      "mark": {"type": "text", "align": "left", "dx": 30, "fontSize": 10.5},
+      "mark": {
+        "type": "text",
+        "align": "center",
+        "baseline": "bottom",
+        "dy": -10,
+        "fontSize": 10.5
+      },
       "encoding": {
         "text": {"field": "Expenditure Group"},
         "x": {"field": "Year"},
@@ -94,6 +104,7 @@
           "value": "#333333"
         }
       }
+
     }
   ]
 }

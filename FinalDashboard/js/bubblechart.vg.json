@@ -82,7 +82,7 @@
         "enter": {
           "x": {"field": "x"},
           "y": {"field": "y", "offset": 8},
-          "text": {"field": "count", "format": ","},
+          "text": {"signal": "format(datum.count, ',')"},
           "align": {"value": "center"},
           "baseline": {"value": "middle"},
           "fill": {"value": "#333"},

@@ -153,6 +153,30 @@ body {
 
 }
 
+footer.credits {
+  text-align: center;
+  margin-top: 40px;
+  padding: 20px 0;
+  border-top: 1px solid #898484;
+  font-size: 14px;
+  color: #474545;
+}
+
+footer.credits a {
+  color: #1f77b4;
+  text-decoration: none;
+}
+
+footer.credits a:hover {
+  text-decoration: underline;
+}
+
+footer.credits p {
+  margin: 6px 0;
+  line-height: 1.6;
+}
+
+
 /* Newspaper column effect */
 .news-column {
     column-gap: 30px;

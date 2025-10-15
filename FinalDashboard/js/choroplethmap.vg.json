@@ -6,12 +6,12 @@
     "anchor": "middle",
     "dy": -5
   },
-  "width": 600,
+  "width": 800,
   "height": 390,
   "projection": {
     "type": "mercator",
     "center": [108.3, 4],
-    "scale": 2000
+    "scale": 2500
   },
   "layer": [
     {
@@ -43,7 +43,7 @@
           "title": "Food Spending (%)",
           "scale": {
             "domain": [9, 13, 17, 21, 25],
-            "range": ["#deebf7", "#9ecae1", "#4292c6", "#08519c", "#08306b"]
+            "range": ["#f7f4ef", "#e6d7c3", "#d4b896", "#b38b6d", "#8b5a3c"]
           },
           "legend": {
             "title": "Food Spending (%)",

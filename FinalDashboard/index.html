@@ -63,24 +63,16 @@
       
       <!-- Chart on the right, text on the left -->
       <div class="pure-u-1 pure-u-lg-2-5">
-        <div class="chart-container">
+        <div class="text-container">
           <h3 class="chart-title">Understanding Expenditure Trends</h3>
           <p class="chart-description">
             Over time, the way Malaysians manage their household budgets has evolved. Data from 2019 to 2022 shows a 
             steady rise in <strong><span style="color:#1f77b4;">food and beverage</span></strong> spending — from 
             <strong><span style="color:#1f77b4;">16.3%</span></strong> to 
             <strong><span style="color:#1f77b4;">17.3%</span></strong>, showing that food has become a bigger part 
-            of family budgets.
-          </p>
-
-          <p class="chart-description">
-            Other spending areas also changed — <strong>accommodation services</strong> grew a lot, while 
-            <strong>transport expenses</strong> went down. This may be due to post-pandemic lifestyle changes, 
-            where people <strong>travel less</strong> and enjoy more <strong>local food experiences</strong>.
-          </p>
-
-          <p class="chart-description">
-            The increase in spending on <strong><span style="color:#1f77b4;">food and beverages</span></strong> 
+            of family budgets.<br /><br />
+            Other spending areas also changed. For example, <strong>accommodation services</strong> grew a lot, while 
+            <strong>transport expenses</strong> went down. The increase in spending on <strong><span style="color:#1f77b4;">food and beverages</span></strong> 
             shows how important <strong>Malaysia’s hawker culture</strong> and <strong>street food scene</strong> 
             are to the country’s daily life and economy.
           </p>
@@ -89,44 +81,50 @@
 
       <!-- Chart on the right with margin -->
       <div class="pure-u-1 pure-u-lg-3-5">
-        <div class="chart-container" style="margin-left: 40px;">
+        <div class="chart-container" style="margin-left: 10px;">
           <div id="slopechart"></div>
         </div>
       </div>
     </section>      
    
-    <!-- Section 2: Choropleth Map with Text Beside -->
+    <!-- Section 2: Choropleth Map with Text Below -->
     <section class="pure-g">
       <div class="pure-u-1">
         <h2 class="section-header">A Taste of Geography: Food Spending Across States…</h2>
       </div>
-      
-      <!-- Visualization on the left -->
-      <div class="pure-u-1 pure-u-lg-3-5">
-        <div class="chart-container">
+
+      <!-- Chart (full width) -->
+      <div class="pure-u-1">
+        <div class="chart-container2" style="margin-left: 20px;">
           <div id="choroplethmap"></div>
         </div>
       </div>
 
-      <!-- Text explanation on the right -->
-      <div class="pure-u-1 pure-u-lg-2-5">
-        <div class="chart-container" style="margin-left: 40px;">
-          <h3 class="chart-title">Food Spending Patterns</h3>
-          <p class="chart-description">
-            Here, we can explore how <strong>food spending</strong> differs across Malaysia’s states, 
+      <!-- Text below the chart in two columns -->
+      <div class="pure-u-1">
+        <div class="text-container news-column" style="max-width: 900px; padding: 40px;">
+          <h3 class="chart-title" style="padding: 0px;">Food Spending Patterns</h3>
+          <p>
+            Here, we can explore how <strong>food spending</strong> differs across Malaysia’s states,
             showing how households from different regions manage their food budgets.
           </p>
-          <p class="chart-description">
-            States with <strong style="color: #4175b9;">darker shades</strong> have <strong style="color: #4175b9;">higher spending</strong>, often linked to <strong>urban lifestyles</strong>.
-            <strong style="color: #6baed6;">Lighter regions</strong> show <strong style="color: #6baed6;">lower spending</strong>, where <strong>cooking at home</strong> is more common.
+          <p>
+            States with <strong style="color: #8b5a3c;">darker shades</strong> have 
+            <strong style="color: #8b5a3c;">higher spending</strong>, often linked to 
+            urban lifestyles. 
+            <strong style="color: #b38b6d;">Lighter regions</strong> show 
+            <strong style="color: #b38b6d">lower spending</strong>, where 
+            cooking at home is more common.
           </p>
-          <p class="chart-description">
-            These differences reflect how <strong>income levels</strong> and <strong>cultural habits</strong> shape Malaysia’s food landscape,
+          <p>
+            These differences reflect how <strong>income levels</strong> and 
+            <strong>cultural habits</strong> shape Malaysia’s food landscape,
             explaining why some regions have <strong>richer hawker cultures</strong>.
           </p>
         </div>
       </div>
     </section>
+
 
     <!-- Section 3: Dot Matrix and Word Cloud (Side by Side) -->
     <section class="pure-g">
@@ -136,7 +134,10 @@
 
       <!-- Dot Matrix Chart -->
       <div class="pure-u-1 pure-u-lg-1-2">
-        <div class="chart-container" style="margin-right: 30px;">
+        <div class="chart-container" style="margin-left: 20px;">
+          <div id="dotmatrix"></div>
+        </div>
+        <div class="text-container">
           <h3 class="chart-title">Food & Beverage Spending by Ethnic Group</h3>
           <p class="chart-description">
             This chart shows how different <strong>ethnic groups</strong> in Malaysia spend their <strong>household budget</strong> on <strong>food and beverages</strong>.
@@ -144,13 +145,15 @@
             Some groups spend <strong>more on food</strong> than others, reflecting both <strong>cultural preferences</strong> and <strong>economic conditions</strong>.
             These differences help us understand how Malaysia's many communities shape the nation's <strong>food culture</strong> through their unique <strong>eating habits</strong>.
           </p>
-          <div id="dotmatrix"></div>
         </div>
       </div>
 
       <!-- Word Cloud Chart -->
       <div class="pure-u-1 pure-u-lg-1-2">
-        <div class="chart-container" style="margin-left: 30px;">
+        <div class="chart-container" style="margin-left: 20px;">
+          <div id="wordcloud"></div>
+        </div>
+        <div class="text-container">
           <h3 class="chart-title">Popular Foods by State</h3>
           <p class="chart-description">
             Now we can look into the most <strong>popular foods</strong> across different <strong>Malaysian states</strong>.
@@ -159,7 +162,6 @@
             showing how every state contributes its own flavor to Malaysia's <strong>food identity</strong>.
             From <strong>coastal seafood</strong> to comforting <strong>local favorites</strong>, each region brings something special to the table.
           </p>
-          <div id="wordcloud"></div>
         </div>
       </div>
     </section>
@@ -172,14 +174,14 @@
 
       <!-- Chart on the left -->
       <div class="pure-u-1 pure-u-lg-3-5">
-        <div class="chart-container">
+        <div class="chart-container" style="margin-left: 15px; margin-right: 10px;">
           <div id="lollipopchart"></div>
         </div>
       </div>
 
       <!-- Text and title on the right -->
       <div class="pure-u-1 pure-u-lg-2-5">
-        <div class="chart-container" style="margin-left: 40px;">
+        <div class="text-container" style="margin-left: 40px;">
           <h3 class="chart-title">Hawker Stall Distribution by State</h3>
           <p class="chart-description">
             Ever wondered which <strong>Malaysian states</strong> have the <strong>liveliest hawker scenes</strong>? 
@@ -206,8 +208,10 @@
 
       <!-- Left: Bubble Chart -->
       <div class="pure-u-1 pure-u-lg-1-2">
-        <div class="chart-container" style="margin-right: 30px;">
+        <div class="chart-container" style="margin-right: 30px; margin-bottom: 10px; padding-bottom: 12px;">
           <div id="bubblechart"></div>
+        </div>
+        <div class="text-container">
           <h3 class="chart-title">Stall Categories Distribution</h3>
           <p class="chart-description">
             Here, we can discover how common each type of hawker stall is in Malaysia.  
@@ -222,8 +226,10 @@
 
       <!-- Right: Radar Chart -->
       <div class="pure-u-1 pure-u-lg-1-2">
-        <div class="chart-container" style="margin-left: 30px;">
+        <div class="chart-container" style="margin-left: 30px; margin-bottom: 0px; padding-bottom: 0px;">
           <div id="radarchart"></div>
+        </div>
+        <div class="text-container">
           <h3 class="chart-title">Stall Categories by State</h3>
           <p class="chart-description">
             Each state in Malaysia has its own unique mix of <strong>hawker stall types</strong>,  

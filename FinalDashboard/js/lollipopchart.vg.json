@@ -6,8 +6,8 @@
     "anchor": "middle",
     "dy": -5
   },
-  "width": 550,
-  "height": 380,
+  "width": 399,
+  "height": 400,
   "data": {
     "url": "https://raw.githubusercontent.com/abbie0711/FIT-3179/refs/heads/main/FinalDashboard/data/No_of_stalls.csv"
   },

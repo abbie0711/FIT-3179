@@ -37,7 +37,7 @@ body {
   text-align: center;
   background: linear-gradient(to bottom, #d8c3a5, #cbb994);
   border-bottom: 3px double #8b7b5b;
-  padding: 25px 0;
+  padding: 25px 35px;
   margin-bottom: 30px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
@@ -188,26 +188,34 @@ footer.credits p {
   font-size: 1.4rem;
   font-weight: 700;
   color: #614e35;
-  margin: 0 20px;
-  padding: 0 30px 20px;
+  padding-left: 20px;
+  margin: 0px;
 }
 
 .chart-description {
-  padding: 0 30px 20px;
-  margin: 5px 20px;
-  font-size: 16px;
+  padding: 20px;
+  margin: 0px;
+  font-size: 17px;
   color: #2c2a1f;
   line-height: 1.6;
   text-align: justify;
 }
 
 .chart-container {
-    background: transparent;
-    padding: 10px 20px;
-    border: none;
-    box-shadow: none;
-    margin-bottom: 40px;
-    margin-top: 10px;
+  background: transparent;
+  padding: 10px 20px;
+  border: none;
+  box-shadow: none;
+  margin-bottom: 10px;
+  margin-top: 15px;
+}
+
+.chart-container2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  width: 100%;
 }
 
 .section-header {
@@ -217,22 +225,13 @@ footer.credits p {
   color: #3e2f1c;
   border-bottom: 2px solid #978d6f;
   margin: 20px;
+  margin-bottom: 5px;
   padding: 0 20px 20px;
 }
 
 .text-container {
-  background: #faf7ef; /* subtle newspaper beige */
-  border: 1px solid #d4c9a1;
-  border-radius: 6px;
-  padding: 20px 25px;
-  margin: 10px 0;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.text-container:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  background: transparent;
+  padding: 20px;
 }
 
 /* Chart styling */
@@ -245,5 +244,7 @@ footer.credits p {
 /* Newspaper column effect */
 .news-column {
   column-count: 2;
-  column-gap: 30px;
+  column-gap: 90px;
+  text-align: justify;
+  font-size: 17px;
 }

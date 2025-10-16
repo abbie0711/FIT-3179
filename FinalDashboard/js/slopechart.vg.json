@@ -41,7 +41,7 @@
           "Accommodation services",
           "Transport"
         ],
-        "range": ["#1f77b4", "#999999", "#999999", "#999999"]
+        "range": ["#99623d", "#666666", "#666666", "#666666"]
       },
       "legend": null
     }
@@ -89,8 +89,8 @@
         "type": "text",
         "align": "center",
         "baseline": "bottom",
-        "dy": -10,
-        "fontSize": 10.5
+        "dy": -11,
+        "fontSize": 11
       },
       "encoding": {
         "text": {"field": "Expenditure Group"},
@@ -99,9 +99,9 @@
         "color": {
           "condition": {
             "test": "datum['Expenditure Group'] == 'Food and beverages'",
-            "value": "#1f77b4"
+            "value": "#99623d"
           },
-          "value": "#333333"
+          "value": "#666666"
         }
       }
 

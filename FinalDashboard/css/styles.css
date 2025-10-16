@@ -19,7 +19,7 @@ body {
 
 /* Newspaper container */
 .newspaper-container {
-  max-width: 1000px;
+  width: 1000px;
   margin: 0 auto;
   background: #f7f4e9;
   box-shadow: 0 0 20px rgba(0,0,0,0.1);
@@ -106,6 +106,7 @@ footer.credits p {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   max-width: 100%;
   margin-left: 40px;
+  margin-top: 0px;
 }
 
 .intro-image-container:hover {

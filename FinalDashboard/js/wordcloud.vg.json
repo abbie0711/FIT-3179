@@ -63,7 +63,7 @@
         {"food": "Manok Pansuh", "state": "Sarawak", "popularity": 67},
         {"food": "Hinava", "state": "Sabah", "popularity": 82},
         {"food": "Mee Tuaran", "state": "Sabah", "popularity": 73},
-        {"food": "Kacang Pool", "state": "Johor", "popularity": 73},
+        {"food": "Kacang Pool", "state": "Johor", "popularity": 86},
         {"food": "Pisang Goreng", "state": "Johor", "popularity": 72},
         {"food": "Pie Tee", "state": "Melaka", "popularity": 73},
         {"food": "Bak Kut Teh", "state": "Selangor", "popularity": 71}
@@ -76,7 +76,7 @@
       "transform": [
         {
           "type": "wordcloud",
-          "size": [370, 420],
+          "size": [380, 430],
           "text": {"field": "food"},
           "font": "sans-serif",
           "fontSize": {"field": "popularity"},
@@ -104,7 +104,7 @@
       "fill": "stateColor",
       "title": "State",
       "orient": "right",
-      "labelFontSize": 9,
+      "labelFontSize": 8.5,
       "titleFontSize": 10
     }
   ],

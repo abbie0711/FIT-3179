@@ -222,7 +222,7 @@
           "text": {"value": "↑ Click To Filter"},
           "align": {"value": "center"},
           "baseline": {"value": "top"},
-          "fontSize": {"value": 10.5},
+          "fontSize": {"value": 11},
           "fill": {"value": "#7B3F00"}
         }
       }

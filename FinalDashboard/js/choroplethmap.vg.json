@@ -57,6 +57,164 @@
           {"field": "Food Spending (%)", "type": "quantitative", "title": "Food Spending %"}
         ]
       }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "State": "Kelantan", 
+            "Food Spending (%)": 25.56, 
+            "Type": "Highest Spending", 
+            "state_lon": 102.0, 
+            "state_lat": 5.5,
+            "text_lon": 104.0,
+            "text_lat": 6.5
+          },
+          {
+            "State": "Putrajaya", 
+            "Food Spending (%)": 9.76, 
+            "Type": "Lowest Spending", 
+            "state_lon": 101.7, 
+            "state_lat": 2.9,
+            "text_lon": 103.0,
+            "text_lat": 0.6
+          }
+        ]
+      },
+      "layer": [
+        {
+          "mark": {
+            "type": "rule",
+            "strokeWidth": 1.5,
+            "strokeDash": [4, 4]
+          },
+          "encoding": {
+            "longitude": {"field": "state_lon", "type": "quantitative"},
+            "longitude2": {"field": "text_lon"},
+            "latitude": {"field": "state_lat", "type": "quantitative"},
+            "latitude2": {"field": "text_lat"},
+            "color": {
+              "condition": {
+                "test": "datum.Type === 'Highest Spending'",
+                "value": "#5D4037"
+              },
+              "value": "#A1887F"
+            },
+            "strokeOpacity": {"value": 0.7}
+          }
+        },
+        {
+          "mark": {
+            "type": "point",
+            "filled": true,
+            "size": 60,
+            "stroke": "white",
+            "strokeWidth": 2
+          },
+          "encoding": {
+            "longitude": {"field": "state_lon", "type": "quantitative"},
+            "latitude": {"field": "state_lat", "type": "quantitative"},
+            "color": {
+              "condition": {
+                "test": "datum.Type === 'Highest Spending'",
+                "value": "#5D4037"
+              },
+              "value": "#A1887F"
+            },
+            "tooltip": [
+              {"field": "State", "type": "nominal", "title": "State"},
+              {"field": "Food Spending (%)", "type": "quantitative", "title": "Food Spending %"},
+              {"field": "Type", "type": "nominal", "title": "Status"}
+            ]
+          }
+        },
+        {
+          "mark": {
+            "type": "point",
+            "filled": true,
+            "size": 100,
+            "opacity": 0.1
+          },
+          "encoding": {
+            "longitude": {"field": "text_lon", "type": "quantitative"},
+            "latitude": {"field": "text_lat", "type": "quantitative"},
+            "color": {
+              "condition": {
+                "test": "datum.Type === 'Highest Spending'",
+                "value": "#5D4037"
+              },
+              "value": "#A1887F"
+            }
+          }
+        },
+        {
+          "mark": {
+            "type": "text",
+            "align": "left",
+            "baseline": "middle",
+            "fontSize": 12,
+            "fontWeight": "bold",
+            "dx": 8,
+            "dy": -15
+          },
+          "encoding": {
+            "longitude": {"field": "text_lon", "type": "quantitative"},
+            "latitude": {"field": "text_lat", "type": "quantitative"},
+            "text": {"field": "State", "type": "nominal"},
+            "color": {
+              "condition": {
+                "test": "datum.Type === 'Highest Spending'",
+                "value": "#5D4037"
+              },
+              "value": "#A1887F"
+            }
+          }
+        },
+        {
+          "mark": {
+            "type": "text",
+            "align": "left",
+            "baseline": "middle",
+            "fontSize": 11,
+            "dx": 8,
+            "dy": 0
+          },
+          "encoding": {
+            "longitude": {"field": "text_lon", "type": "quantitative"},
+            "latitude": {"field": "text_lat", "type": "quantitative"},
+            "text": {"field": "Type", "type": "nominal"},
+            "color": {
+              "condition": {
+                "test": "datum.Type === 'Highest Spending'",
+                "value": "#5D4037"
+              },
+              "value": "#A1887F"
+            }
+          }
+        },
+        {
+          "mark": {
+            "type": "text",
+            "align": "left",
+            "baseline": "middle",
+            "fontSize": 10,
+            "dx": 8,
+            "dy": 12
+          },
+          "encoding": {
+            "longitude": {"field": "text_lon", "type": "quantitative"},
+            "latitude": {"field": "text_lat", "type": "quantitative"},
+            "text": {"field": "Food Spending (%)", "type": "quantitative", "format": ".2f"},
+            "color": {
+              "condition": {
+                "test": "datum.Type === 'Highest Spending'",
+                "value": "#5D4037"
+              },
+              "value": "#A1887F"
+            }
+          }
+        }
+      ]
     }
   ]
 }

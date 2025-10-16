@@ -10,10 +10,10 @@
     "dy": -10
   },
   "signals": [
-    {"name": "radius", "value": 139},
-    {"name": "radiusRange", "value": [0, 139]},
+    {"name": "radius", "value": 135},
+    {"name": "radiusRange", "value": [0, 135]},
     {"name": "centerX", "update": "width / 2"},
-    {"name": "centerY", "update": "height / 2 + 40"},
+    {"name": "centerY", "update": "height / 2 + 50"},
     {
       "name": "clear",
       "value": true,
@@ -289,6 +289,21 @@
           }
         }
       ]
+    },
+    {
+      "type": "text",
+      "name": "filter_instruction",
+      "encode": {
+        "update": {
+          "x": {"value": 310},
+          "y": {"value": 74},
+          "text": {"value": "↑ Click To Filter"},
+          "align": {"value": "center"},
+          "baseline": {"value": "top"},
+          "fontSize": {"value": 10.5},
+          "fill": {"value": "#7B3F00"}
+        }
+      }
     }
   ]
 }

@@ -1,25 +1,72 @@
 {
   "$schema": "https://vega.github.io/schema/vega/v5.json",
-  "width": 270,
-  "height": 270,
+  "width": 290,
+  "height": 200,
   "padding": 20,
   "title": {
     "text": "Number of Hawker Stalls by Category",
     "anchor": "middle",
     "dy": -10
   },
-  "data": [
+  
+  "signals": [
     {
-      "name": "stalls",
-      "values": [
-        {"category": "Metal", "count": 8826, "x": 195, "y": 230},
-        {"category": "Large stall", "count": 5984, "x": 87, "y": 180},
-        {"category": "One piece", "count": 5839, "x": 300, "y": 175},
-        {"category": "Table", "count": 3620, "x": 129, "y": 320},
-        {"category": "Food truck", "count": 678, "x": 265, "y": 300}
+      "name": "clear",
+      "value": true,
+      "on": [
+        {
+          "events": "mouseup[!event.item]",
+          "update": "true",
+          "force": true
+        }
+      ]
+    },
+    {
+      "name": "shift",
+      "value": false,
+      "on": [
+        {
+          "events": "@legendSymbol:click, @legendLabel:click",
+          "update": "event.shiftKey",
+          "force": true
+        }
+      ]
+    },
+    {
+      "name": "clicked",
+      "value": null,
+      "on": [
+        {
+          "events": "@legendSymbol:click, @legendLabel:click",
+          "update": "{value: datum.value}",
+          "force": true
+        }
       ]
     }
   ],
+  
+  "data": [
+    {
+      "name": "selected",
+      "on": [
+        {"trigger": "clear", "remove": true},
+        {"trigger": "!shift", "remove": true},
+        {"trigger": "!shift && clicked", "insert": "clicked"},
+        {"trigger": "shift && clicked", "toggle": "clicked"}
+      ]
+    },
+    {
+      "name": "stalls",
+      "values": [
+        {"category": "Metal", "count": 8826, "x": 205, "y": 240},
+        {"category": "Large stall", "count": 5984, "x": 83, "y": 180},
+        {"category": "One piece", "count": 5839, "x": 325, "y": 175},
+        {"category": "Table", "count": 3620, "x": 129, "y": 345},
+        {"category": "Food truck", "count": 678, "x": 265, "y": 340}
+      ]
+    }
+  ],
+  
   "scales": [
     {
       "name": "color",
@@ -31,16 +78,54 @@
       "name": "size",
       "type": "sqrt",
       "domain": [0, 9000],
-      "range": [2000, 15000]  
+      "range": [4000, 20000]  
     }
   ],
+  
   "legends": [
     {
       "fill": "color",
       "title": "Stall Category",
-      "orient": "right"
+      "orient": "right",
+      "encode": {
+        "symbols": {
+          "name": "legendSymbol",
+          "interactive": true,
+          "update": {
+            "fill": {"scale": "color", "field": "value"},
+            "stroke": {"value": "white"},
+            "strokeWidth": {"value": 0},
+            "opacity": [
+              {
+                "test": "!length(data('selected')) || indata('selected', 'value', datum.value)",
+                "value": 0.7
+              },
+              {"value": 0.15}
+            ],
+            "size": {"value": 64}
+          }
+        },
+        "labels": {
+          "name": "legendLabel",
+          "interactive": true,
+          "update": {
+            "fill": {"value": "black"},
+            "opacity": [
+              {
+                "test": "!length(data('selected')) || indata('selected', 'value', datum.value)",
+                "value": 1
+              },
+              {"value": 0.25}
+            ]
+          },
+          "hover": {
+            "fill": {"value": "firebrick"}
+          }
+        }
+      }
     }
   ],
+  
   "marks": [
     {
       "type": "symbol",
@@ -52,7 +137,30 @@
           "size": {"scale": "size", "field": "count"},
           "fill": {"scale": "color", "field": "category"},
           "stroke": {"value": "white"},
-          "strokeWidth": {"value": 0},
+          "strokeWidth": {"value": 0}
+        },
+        "update": {
+          "opacity": [
+            {
+              "test": "!length(data('selected')) || indata('selected', 'value', datum.category)",
+              "value": 1
+            },
+            {"value": 0.2}
+          ],
+          "fillOpacity": [
+            {
+              "test": "!length(data('selected')) || indata('selected', 'value', datum.category)",
+              "value": 0.8
+            },
+            {"value": 0.2}
+          ],
+          "strokeOpacity": [
+            {
+              "test": "!length(data('selected')) || indata('selected', 'value', datum.category)",
+              "value": 1
+            },
+            {"value": 0.2}
+          ],
           "tooltip": {
             "signal": "{'Category': datum.category, 'Number of Stalls': format(datum.count, ',')}"
           }
@@ -63,15 +171,22 @@
       "type": "text",
       "from": {"data": "stalls"},
       "encode": {
-        "enter": {
+        "update": {
           "x": {"field": "x"},
           "y": {"field": "y", "offset": -8},
           "text": {"field": "category"},
           "align": {"value": "center"},
           "baseline": {"value": "middle"},
           "fill": {"value": "black"},
-          "fontSize": {"value": 12},  
-          "fontWeight": {"value": "bold"}
+          "fontSize": {"value": 14},  
+          "fontWeight": {"value": "bold"},
+          "opacity": [
+            {
+              "test": "!length(data('selected')) || indata('selected', 'value', datum.category)",
+              "value": 1
+            },
+            {"value": 0.2}
+          ]
         }
       }
     },
@@ -79,14 +194,36 @@
       "type": "text",
       "from": {"data": "stalls"},
       "encode": {
-        "enter": {
+        "update": {
           "x": {"field": "x"},
           "y": {"field": "y", "offset": 8},
           "text": {"signal": "format(datum.count, ',')"},
           "align": {"value": "center"},
           "baseline": {"value": "middle"},
           "fill": {"value": "#333"},
-          "fontSize": {"value": 12}  
+          "fontSize": {"value": 13},
+          "opacity": [
+            {
+              "test": "!length(data('selected')) || indata('selected', 'value', datum.category)",
+              "value": 1
+            },
+            {"value": 0.2}
+          ]
+        }
+      }
+    },
+    {
+      "type": "text",
+      "name": "filter_instruction",
+      "encode": {
+        "update": {
+          "x": {"value": 345},
+          "y": {"value": 79},
+          "text": {"value": "↑ Click To Filter"},
+          "align": {"value": "center"},
+          "baseline": {"value": "top"},
+          "fontSize": {"value": 10.5},
+          "fill": {"value": "#7B3F00"}
         }
       }
     }

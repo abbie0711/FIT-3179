@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "background": "#f0f0f0",
+  "background": "#f7f4e9",
   "title": {
     "text": "Food & Beverage Spending by Ethnic Group",
     "anchor": "middle",

@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "background": "#f0f0f0",
+  "background": "#f7f4e9",
   "title": {
     "text": "State-Level Food Expenditure in Malaysia (2019)",
     "anchor": "middle",
@@ -11,7 +11,7 @@
   "projection": {
     "type": "mercator",
     "center": [108.3, 4],
-    "scale": 2500
+    "scale": 2600
   },
   "layer": [
     {

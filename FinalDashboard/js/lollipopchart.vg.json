@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "background": "#f0f0f0",
+  "background": "#f7f4e9",
   "title": {
     "text": "Number of Hawker Stalls by State in Malaysia",
     "anchor": "middle",

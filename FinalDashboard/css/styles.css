@@ -162,24 +162,6 @@ footer.credits p {
   font-weight: 600;
 }
 
-/* Make sure the layout looks good side-by-side on larger screens */
-@media (min-width: 768px) {
-  .intro-section {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .intro-image-container {
-    flex: 1;
-    margin-right: 20px;
-  }
-
-  .intro-text {
-    flex: 1;
-  }
-}
-
 /* ============================== */
 /* Chart & Section Styling */
 /* ============================== */

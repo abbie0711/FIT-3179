@@ -1,11 +1,6 @@
 /* Import Google Font for newspaper style */
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Sans+Pro:wght@300;400;600&display=swap');
 
-html, body {
-  width: 100%;
-  overflow-x: hidden; /* Prevent horizontal scrolling */
-}
-
 /* Base styles */
 body {
   font-family: 'Source Sans Pro', sans-serif;

@@ -1,6 +1,11 @@
 /* Import Google Font for newspaper style */
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Sans+Pro:wght@300;400;600&display=swap');
 
+html, body {
+  overflow-x: auto;  /* allow horizontal scrolling */
+  touch-action: pan-x pan-y;  /* smoother scrolling on touch devices */
+}
+
 /* Base styles */
 body {
   font-family: 'Source Sans Pro', sans-serif;
@@ -23,11 +28,8 @@ body {
   border: 1px solid #d6d3d1;
 }
 
-/* ============================== */
-/* FIGURE–GROUND: Header + Footer */
-/* ============================== */
-
-/* Warm gradient header (stands out on light background) */
+/* Header + Footer */
+/* Warm gradient header */
 .newspaper-header {
   text-align: center;
   background: linear-gradient(to bottom, #d8c3a5, #cbb994);
@@ -55,7 +57,6 @@ body {
   margin-top: 10px;
 }
 
-/* Warm footer to balance the page visually */
 footer.credits {
   width: 100%;
   text-align: center;
@@ -84,10 +85,7 @@ footer.credits p {
   line-height: 1.6;
 }
 
-/* ============================== */
 /* Introduction Image Container  */
-/* ============================== */
-
 .intro-image-container {
   display: flex;
   flex-direction: column;
@@ -125,16 +123,13 @@ footer.credits p {
   line-height: 1.4;
 }
 
-/* ============================== */
 /* Introduction Text Section      */
-/* ============================== */
-
 .intro-text {
-  background: #f6ecda; /* soft beige paper tone to match image container */
+  background: #f6ecda; 
   border: 1px solid #d6c6a1;
   border-radius: 8px;
   padding: 25px 40px;
-  margin: 20px 60px 50px 60px; /* more space on the right, less on left */
+  margin: 20px 60px 50px 60px; 
   text-align: justify;
   color: #2c2a1f;
   line-height: 1.7;
@@ -152,15 +147,7 @@ footer.credits p {
   margin: 0;
 }
 
-.intro-text strong {
-  color: #8b6b35; /* highlight key words in warm brown tone */
-  font-weight: 600;
-}
-
-/* ============================== */
 /* Chart & Section Styling */
-/* ============================== */
-
 .chart-title {
   font-family: 'Playfair Display', serif;
   font-size: 1.4rem;

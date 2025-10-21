@@ -23,8 +23,7 @@ body {
   border: 1px solid #d6d3d1;
 }
 
-/* Header + Footer */
-/* Warm gradient header */
+/* Header & Footer */
 .newspaper-header {
   text-align: center;
   background: linear-gradient(to bottom, #d8c3a5, #cbb994);
@@ -80,7 +79,7 @@ footer.credits p {
   line-height: 1.6;
 }
 
-/* Introduction Image Container  */
+/* Introduction Image Container */
 .intro-image-container {
   display: flex;
   flex-direction: column;
@@ -118,7 +117,7 @@ footer.credits p {
   line-height: 1.4;
 }
 
-/* Introduction Text Section      */
+/* Introduction Text Section */
 .intro-text {
   background: #f6ecda; 
   border: 1px solid #d6c6a1;
